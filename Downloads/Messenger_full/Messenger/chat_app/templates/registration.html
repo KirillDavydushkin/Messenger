@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block links %} 
+    <link rel="stylesheet" href= "{{ url_for('chat.static', filename='css/reg_style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+{% endblock %}
+
+{% block content %}
+<div id = "container">
+    <div class="page">
+        <button class="signin" type="button" onclick="window.location.href='/auth'">Увійти</button>
+
+        <main class="auth">
+        <div class="logo" role="img">
+        </div>
+
+        <h1 class="title">Створити обліковий запис</h1>
+
+        <form class="form" method="post" action="/reg">
+            <label for="email">Введіть вашу електронну пошту нижче, щоб створити обліковий запис</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" value="{{ email or '' }}" required>
+
+            <label for="password">Задайте ваш пароль нижче, щоб створити обліковий запис</label>
+            <input id="password" name="password" type="password" placeholder="••••••••••••••" autocomplete="new-password" required>
+
+            {% if error %}<p class="form-msg form-msg--error">{{ error }}</p>{% endif %}
+            {% if success %}<p class="form-msg form-msg--success">{{ success }}</p>{% endif %}
+
+            <button type="submit">Надіслати код підтвердження</button>
+        </form>
+
+        <p class="legal">
+            Натискаючи «Продовжити», ви погоджуєтеся з нашими<br>
+            <a href="#">Умовами обслуговування</a> і <a href="#">Політикою конфіденційності</a>.
+        </p>
+
+        <div class="art" role="img" aria-label="Діти за комп'ютером, смайлики та повідомлення"></div>
+        </main>
+    </div>
+</div>
+{% endblock %}

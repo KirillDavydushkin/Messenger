@@ -1,0 +1,114 @@
+*,*::before,*::after{box-sizing:border-box}
+
+:root{
+  --bg:#fff;
+  --text:#0a0a14;
+  --label:#6b7280;
+  --legal:#c9cbd1;
+  --placeholder:#a1a5ae;
+  --border:#e5e7eb;
+  --btn:#0a0a1a;
+  --brand:#3b9cf0;
+}
+
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.page{position:relative;min-height:100vh;padding:12px 16px 40px}
+
+/* Кнопка «Увійти» */
+.signin{
+  position:fixed;top:28px;right:53px;
+  width:63px;height:30px;
+  border:1px solid var(--border);border-radius:6px;
+  background:#fff;color:var(--text);
+  font:500 13px/1 "Inter",system-ui,sans-serif;
+  cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04);
+}
+.signin:hover{background:#f9fafb}
+
+/* Колонка */
+.auth{width:426px;max-width:100%;margin:0 auto;text-align:center}
+
+/* Заголовок */
+.title{margin:24px 0 25px;font-size:22px;line-height:28px;font-weight:600;color:var(--text)}
+
+/* Форма */
+.form label{
+  display:block;text-align:left;
+  font-size:13px;line-height:18px;font-weight:400;color:var(--label);
+}
+.form input{
+  display:block;width:100%;height:30px;
+  margin:20px 0 13px;padding:0 10px;
+  border:1px solid var(--border);border-radius:6px;
+  background:#fff;color:var(--text);
+  font:400 12px/1 "Inter",system-ui,sans-serif;outline:none;
+}
+.form input[type="password"]{margin:14px 0 14px}
+.form input::placeholder{color:var(--placeholder)}
+.form input:focus-visible{border-color:var(--brand);box-shadow:0 0 0 3px rgba(59,156,240,.2)}
+
+.form button{
+  display:block;width:100%;height:30px;
+  border:0;border-radius:6px;
+  background:var(--btn);color:#fff;
+  font:500 13px/1 "Inter",system-ui,sans-serif;cursor:pointer;
+}
+.form button:hover{background:#1a1a2e}
+.form button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+/* Юридический текст */
+.legal{margin:27px 0 0;font-size:13px;line-height:18px;color:var(--legal)}
+.legal a{color:inherit;text-decoration:none}
+.legal a:hover{text-decoration:underline}
+
+/* Иллюстрация */
+.art {
+  display: block;
+  width: 420px;
+  max-width: 100%;
+  aspect-ratio: 500 / 424;
+  margin: 37px auto 0;
+  background: url("../media/image_22.svg") center / contain no-repeat;
+}
+
+.logo {
+  display: block;
+  width: 212px;
+  max-width: 100%;
+  aspect-ratio: 212 / 28;
+  margin: 17px auto 0;   /* было 37px */
+  background: url("../media/world_it.png") center / contain no-repeat
+}
+
+@media (max-width:560px){
+  .signin{right:16px;top:16px}
+  .logo{margin-top:5px}
+}   
+
+header{display:none}
+
+body > main,
+#container,
+.page{
+  display:block !important;
+  height:auto !important;
+  min-height:0 !important;
+  margin:0 !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+}
+.page{padding-top:12px !important}
+.auth{display:block !important;margin:0 auto !important;height:auto !important}
+header{display:none}
+
+/* Повідомлення під полями форми */
+.form-msg{margin:0 0 14px;font-size:13px;line-height:18px;text-align:left}
+.form-msg--error{color:#dc2626}
+.form-msg--success{color:#16a34a}
